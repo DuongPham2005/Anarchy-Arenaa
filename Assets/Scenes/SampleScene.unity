@@ -232,10 +232,10 @@ RectTransform:
   - {fileID: 1942317775}
   m_Father: {fileID: 1725144278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 70}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -115}
+  m_SizeDelta: {x: 600, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &100977132
 MonoBehaviour:
@@ -625,10 +625,10 @@ RectTransform:
   - {fileID: 906491043}
   m_Father: {fileID: 1725144278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 70}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -195}
+  m_SizeDelta: {x: 600, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &286528067
 MonoBehaviour:
@@ -1239,13 +1239,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1005744363}
+  - component: {fileID: 1005744364}
   m_Layer: 5
   m_Name: TitleMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1005744363
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1266,6 +1267,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1005744364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005744362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913b8daef184ce84ab0a7df8c1f7a3c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuName: title
+  open: 0
 --- !u!1 &1041765058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,10 +1315,10 @@ RectTransform:
   - {fileID: 263163757}
   m_Father: {fileID: 1725144278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 70}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -35}
+  m_SizeDelta: {x: 600, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1041765060
 MonoBehaviour:
@@ -1400,6 +1415,7 @@ GameObject:
   - component: {fileID: 1215730131}
   - component: {fileID: 1215730130}
   - component: {fileID: 1215730129}
+  - component: {fileID: 1215730134}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1504,6 +1520,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1215730134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215730128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a15e1b3e4b1c94f99f4bb2a9c9cc54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menus:
+  - {fileID: 1342929717}
+  - {fileID: 1005744364}
 --- !u!1 &1342929715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,13 +1544,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1342929716}
+  - component: {fileID: 1342929717}
   m_Layer: 5
   m_Name: LoadingMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1342929716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1540,6 +1572,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1342929717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342929715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913b8daef184ce84ab0a7df8c1f7a3c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuName: Loading
+  open: 1
 --- !u!1 &1725144277
 GameObject:
   m_ObjectHideFlags: 0
