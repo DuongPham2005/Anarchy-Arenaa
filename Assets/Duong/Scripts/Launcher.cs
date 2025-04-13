@@ -1,9 +1,10 @@
 using UnityEngine;
 using Photon.Pun;
+using TMPro;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] TMP_InputField roomNameInputField;
     void Start()
     {
         Debug.Log("Connecting to Mater");
@@ -21,9 +22,24 @@ public class Launcher : MonoBehaviourPunCallbacks
         MenuManager.Instance.OpenMenu("title");
         Debug.Log("Joined Lobby");
     }
-    // Update is called once per frame
-    void Update()
+    
+    public void CreateRoom()
     {
-        
+        if(string.IsNullOrEmpty(roomNameInputField.text))
+        {
+            return;
+        }
+        PhotonNetwork.CreateRoom(roomNameInputField.text);
+        MenuManager.Instance.OpenMenu("Loading");
+    }
+
+    public override void OnJoinedRoom()
+    {
+
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+
     }
 }
