@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  islocalPlayer: 0
   healthText: {fileID: 1756373094308622119}
 --- !u!1 &6108463794356335429
 GameObject:
@@ -525,7 +526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7583431296051654966
 Transform:
   m_ObjectHideFlags: 0

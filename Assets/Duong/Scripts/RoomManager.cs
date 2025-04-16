@@ -3,9 +3,20 @@ using Photon.Pun;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
+    public static RoomManager instance;
+
     public GameObject player;
+
     [Space]
     public Transform spawnPoint;
+
+    [Space]
+    public GameObject roomCam;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
 
     void Start()
@@ -33,9 +44,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
         Debug.Log("We're connected and in a room!");
-        GameObject _player = PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
+        roomCam.SetActive(false);
+        SpawnPlayer();
+    }
 
+    public void SpawnPlayer()
+    {
+        GameObject _player = PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
         _player.GetComponent<PlayerSetup>().IsLocalPlayer();
+        _player.GetComponent<Health>().islocalPlayer = true;
     }
 }
-

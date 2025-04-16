@@ -430,6 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2473829843998585865, guid: 23bb0d4f5edc7d243999101f7e716a49, type: 3}
   spawnPoint: {fileID: 954647517}
+  roomCam: {fileID: 1375395080}
 --- !u!4 &1216893289
 Transform:
   m_ObjectHideFlags: 0
