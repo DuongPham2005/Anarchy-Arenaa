@@ -1036,6 +1036,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 53286df52e2ae7b45ab2dd32578d8f4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2810261853589381790}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 53286df52e2ae7b45ab2dd32578d8f4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6880119603775958881}
   m_SourcePrefab: {fileID: 100100000, guid: 53286df52e2ae7b45ab2dd32578d8f4a, type: 3}
 --- !u!1 &3980963639265992819 stripped
 GameObject:
@@ -1063,6 +1066,8 @@ MonoBehaviour:
   magAmmo: 30
   magText: {fileID: 994574598577070705}
   ammoText: {fileID: 8855188279584635634}
+  animation: {fileID: 6880119603775958881}
+  reload: {fileID: 7400000, guid: 81013efe127a1544aaf9aaaf07ab1090, type: 2}
 --- !u!114 &2810261853589381790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1077,6 +1082,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swayClamp: 0.2
   smoothing: 2
+--- !u!111 &6880119603775958881
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3980963639265992819}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: 81013efe127a1544aaf9aaaf07ab1090, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 81013efe127a1544aaf9aaaf07ab1090, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!4 &4356364003358964425 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 53286df52e2ae7b45ab2dd32578d8f4a, type: 3}
