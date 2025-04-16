@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d847d9ab9cf69478e1d86e9a7204ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4558899092716214807, guid: 178a6788064df014ba894f456463a1d3, type: 3}
+  player: {fileID: 2473829843998585865, guid: 23bb0d4f5edc7d243999101f7e716a49, type: 3}
   spawnPoint: {fileID: 954647517}
 --- !u!4 &1216893289
 Transform:
@@ -562,5 +562,5 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 38059999}
   - {fileID: 1216893289}
-  - {fileID: 1625061620}
   - {fileID: 954647517}
+  - {fileID: 1625061620}
