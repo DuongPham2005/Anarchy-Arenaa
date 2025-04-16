@@ -1,40 +1,41 @@
-using System.IO;
-using Photon.Pun;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
-    public static RoomManager Instance;
+    public GameObject player;
+    [Space]
+    public Transform spawnPoint;
 
-    void Awake()
+
+    void Start()
     {
-        if (Instance)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
-        Instance = this;
+        Debug.Log("Connecting...");
+
+        PhotonNetwork.ConnectUsingSettings();
     }
 
-    public override void OnEnable()
+    public override void OnConnectedToMaster()
     {
-        base.OnEnable();
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        base.OnConnectedToMaster();
+        Debug.Log("Connected to server");
+        PhotonNetwork.JoinLobby();
     }
 
-    public override void OnDisable()
+    public override void OnJoinedLobby()
     {
-        base.OnDisable();
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-    void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
-    {
-        if(scene.buildIndex == 1)
-        {
-            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
-        }
+        base.OnJoinedLobby();
+        Debug.Log("We're in the lobby");
+        PhotonNetwork.JoinOrCreateRoom("test", null, null);
     }
 
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+        Debug.Log("We're connected and in a room!");
+        GameObject _player = PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
+
+        _player.GetComponent<PlayerSetup>().IsLocalPlayer();
+    }
 }
+
