@@ -9,6 +9,9 @@ public class Weapon : MonoBehaviour
 
     public float fireRate;
 
+    [Header("VFX")]
+    public GameObject hitVFX;
+
     private float nextFire;
 
     // Update is called once per frame
@@ -33,6 +36,8 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, maxDistance: 100f))
         {
+            PhotonNetwork.Instantiate(hitVFX.name, hit.point, Quaternion.identity);
+
             if (hit.transform.gameObject.GetComponent<Health>())
                 hit.transform.gameObject.GetComponent<PhotonView>().RPC(methodName: "TakeDamage", RpcTarget.All, damage);
         }
