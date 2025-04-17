@@ -119,7 +119,7 @@ public class Weapon : MonoBehaviour
 
         RaycastHit hit;
 
-        PhotonNetwork.LocalPlayer.AddScore(1);
+        //PhotonNetwork.LocalPlayer.AddScore(1);
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, maxDistance: 100f))
         {
@@ -129,9 +129,13 @@ public class Weapon : MonoBehaviour
             {
                 PhotonNetwork.LocalPlayer.AddScore(damage);
 
-                if(damage > hit.transform.gameObject.GetComponent<Health>().health)
+                if(damage >= hit.transform.gameObject.GetComponent<Health>().health)
                 {
                     // kill
+
+                    RoomManager.instance.kills++;
+                    RoomManager.instance.SetHashes();
+
                     PhotonNetwork.LocalPlayer.AddScore(100);
                 }
 

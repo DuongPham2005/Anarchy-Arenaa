@@ -17,10 +17,20 @@ public class Health : MonoBehaviour
 
         healthText.text= health.ToString();
 
-        if (health < 0)
+        if (health <= 0)
         {
-            if(islocalPlayer)
-            RoomManager.instance.SpawnPlayer();
+            if (islocalPlayer)
+            {
+                RoomManager.instance.SpawnPlayer();
+
+                RoomManager.instance.deaths++;
+                RoomManager.instance.SetHashes();
+
+            }
+
+
+
+
 
             Destroy(gameObject);
         }

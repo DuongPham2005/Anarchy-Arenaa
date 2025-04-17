@@ -1,7 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
-
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 public class PlayerSetup : MonoBehaviour
 {
     public Movement movement;
@@ -25,4 +25,6 @@ public class PlayerSetup : MonoBehaviour
 
         nicknameText.text = nickname;
     }
+
+
 }
