@@ -1,4 +1,5 @@
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerSetup : MonoBehaviour
 {
@@ -6,9 +7,17 @@ public class PlayerSetup : MonoBehaviour
 
     public GameObject camera;
 
+    public string nickname;
+
     public void IsLocalPlayer()
     {
         movement.enabled = true;
         camera.SetActive(true);
+    }
+
+    [PunRPC]
+    public void SetNickname(string _name)
+    {
+        nickname = _name;
     }
 }
