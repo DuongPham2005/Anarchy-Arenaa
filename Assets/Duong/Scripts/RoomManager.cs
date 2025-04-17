@@ -77,5 +77,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         _player.GetComponent<Health>().islocalPlayer = true;
 
         _player.GetComponent<PhotonView>().RPC("SetNickname", RpcTarget.AllBuffered, nickname);
+        PhotonNetwork.LocalPlayer.NickName = nickname;
+
     }
 }
