@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using TMPro;
 using UnityEngine;
 
@@ -20,6 +21,9 @@ public class Weapon : MonoBehaviour
 
     public int ammo = 30;
     public int magAmmo = 30;
+
+    [Header("SFX")] public int shootSFXIndex = 0;
+    public PlayerPhotonSoundManager playerPhotonSoundManager;
 
     [Header("UI")]
     public TextMeshProUGUI magText;
@@ -114,16 +118,35 @@ public class Weapon : MonoBehaviour
         recoiling = true;
         recovering = false;
 
+        playerPhotonSoundManager.PlayShootSFX(shootSFXIndex);
+
         Ray ray = new Ray(origin: camera.transform.position, direction: camera.transform.forward);
 
         RaycastHit hit;
+
+        //PhotonNetwork.LocalPlayer.AddScore(1);
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, maxDistance: 100f))
         {
             PhotonNetwork.Instantiate(hitVFX.name, hit.point, Quaternion.identity);
 
             if (hit.transform.gameObject.GetComponent<Health>())
+            {
+                PhotonNetwork.LocalPlayer.AddScore(damage);
+
+                if(damage >= hit.transform.gameObject.GetComponent<Health>().health)
+                {
+                    // kill
+
+                    RoomManager.instance.kills++;
+                    RoomManager.instance.SetHashes();
+
+                    PhotonNetwork.LocalPlayer.AddScore(100);
+                }
+
                 hit.transform.gameObject.GetComponent<PhotonView>().RPC(methodName: "TakeDamage", RpcTarget.All, damage);
+            }
+                
         }
     }
 

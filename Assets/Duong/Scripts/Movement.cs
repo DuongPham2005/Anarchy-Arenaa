@@ -21,6 +21,10 @@ public class Movement : MonoBehaviour
 
     private bool grounded = false;
 
+    [Header("Animation")]
+    public Animation handAnimation;
+    public AnimationClip handWalkAnimation;
+    public AnimationClip idleAnimation;
 
     void Start()
     {
@@ -50,10 +54,15 @@ public class Movement : MonoBehaviour
             }
             else if (input.magnitude > 0.5f)
             {
+                handAnimation.clip = handWalkAnimation;
+                handAnimation.Play();
                 rb.AddForce(CalculateMovement(sprinting ? sprintSpeed : walkSpeed), ForceMode.VelocityChange);
             }
             else
             {
+                handAnimation.clip = idleAnimation;
+                handAnimation.Play();
+
                 var velocity1 = rb.linearVelocity;
                 velocity1 = new Vector3(velocity1.x * 0.2f * Time.fixedDeltaTime, velocity1.y, velocity1.z * 0.2f * Time.fixedDeltaTime);
                 rb.linearVelocity = velocity1;
